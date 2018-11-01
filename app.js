@@ -32,7 +32,7 @@ fluffy.save((err, fluffy) => {
     if(err) return console.error(err);
     fluffy.speak();
 });
-// if this wasnt here, it wouldnt be included in the .find methods because it isnt getting saved 
+// if this wasnt here, it wouldnt be included in the .find methods because it isnt getting saved; doenst seem to like the {} as a find all replace,ent
 silence.save((err, silence) => {
     if(err) return console.error(err);
     // if you put this inside the callback, you gauarnetee that it will be run once the silence is saved 
@@ -44,6 +44,7 @@ silence.save((err, silence) => {
     silence.speak();
 });
 
+// regex is case sensitive, so having fluff wouldnt work unless you have a catchall/case insensitve 
 Kitten.find({name: /^Fluff/}, (err, results) => {
     console.log("find kittens with fluff")
     if(err) return console.error(err);
